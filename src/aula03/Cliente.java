@@ -1,4 +1,4 @@
-package aula02;
+package aula03;
 //javabens
 public class Cliente {
 	//atributos
