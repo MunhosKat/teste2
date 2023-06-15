@@ -46,7 +46,7 @@ public abstract class Conta { // abstract usado na classe, proibe a instancia da
 		this.saldo += valor;
 	}
 
-	// ConsultarSaldo
+	// ConsultarSaldo /abstract força a classe filha reescrever o metodo
 	public abstract void exibirSaldo();
 
 	// this é o objeto que esta chamando o metodo

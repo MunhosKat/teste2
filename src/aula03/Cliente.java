@@ -1,21 +1,31 @@
 package aula03;
+
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
+
 //javabens
 public class Cliente {
 	//atributos
 	private String nomeTitular, cpfTitular, rgTitular, enderecoTitular;
+	private final Date dataNasc;
 	
 	//constructor vazio
+	// this se refere ao atributo
 	public Cliente() {
+		this.dataNasc = new Date();
 		
 	}
 	
 	
-	//constructor
-	public Cliente(String nomeTitular, String cpfTitular, String rgTitular, String enderecoTitular) {
+	//constructor --> metodo para instanciar um objeto
+	public Cliente(String nomeTitular, String cpfTitular, String dataNasc, String rgTitular, String enderecoTitular) throws ParseException {
 		
 		
 		this.nomeTitular = nomeTitular;
 		this.cpfTitular = cpfTitular;
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyy");
+		this.dataNasc = formato.parse(dataNasc);
 		this.rgTitular = rgTitular;
 		this.enderecoTitular = enderecoTitular;
 	}

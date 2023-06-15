@@ -1,24 +1,25 @@
 package aula03;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class TestaConta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		CDB CDB = new CDB();
 		LCA LCA = new LCA();
 		LCI LCI = new LCI();
-		
+		//CLASSE É A RECEITA DO BOLO / PROJETO
 		
 		
 		
 		//objetos
-		Cliente matheus = new Cliente("Matheus","46834155555","123456", "bom jesus da lapa");
-		Cliente henrique = new Cliente("Henrique","46834144444","123556", "bom jesus da lapa");
+		Cliente clienteMatheus = new Cliente("Matheus","46834155555","20/12/2005","123456", "bom jesus da lapa");
+		Cliente clienteHenrique = new Cliente("Henrique","46834144444","02/12/2003","123556", "bom jesus da lapa");
 		
-		ContaCorrente contaMatheus = new ContaCorrente(matheus, 1, 1, "teste");
-		ContaCorrente contaHenrique = new ContaCorrente(henrique, 2, 1, "teste");
+		ContaCorrente contaMatheus = new ContaCorrente(clienteMatheus, 1, 1, "teste");
+		ContaCorrente contaHenrique = new ContaCorrente(clienteHenrique, 2, 1, "teste");
 		
 		contaMatheus.depositar(10000);
 		contaHenrique.depositar(9000);
@@ -42,7 +43,8 @@ public class TestaConta {
 		
 		contaMatheus.investimento(CDB,500 );
 		
-		
+		System.out.println(contaMatheus);
+		System.out.println(clienteMatheus.getNomeTitular());
 		
 		
 		
