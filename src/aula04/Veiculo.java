@@ -2,16 +2,24 @@ package aula04;
 
 import java.util.Date;
 
+import aula03.Cliente;
+
 public class Veiculo {
 
 	protected String numeroSerie, cor, placa, porte, modelo;
 	protected Date dataFabricacao;
 	protected int statusVeiculo;
+	protected Motor motor;
+	protected Pneu pneu;
+	protected Transmissao transmissao;
 	protected double limiteVeiculo, valorVeiculo, velocidadeVeiculo;
 	private static long contador;
 
-	public Veiculo(String numeroSerie, String placa, String porte, String modelo) {
+	public Veiculo(Motor motor, Pneu pneu, Transmissao transmissao, String numeroSerie, String placa, String porte, String modelo) {
 		// apagar o SUPER
+		this.motor = motor;
+		this.pneu = pneu;
+		this.transmissao = transmissao;
 		this.numeroSerie = numeroSerie;
 		this.modelo = modelo;
 		this.placa = placa;
@@ -35,7 +43,11 @@ public class Veiculo {
 
 		if (statusVeiculo == 1) {
 			if (acelerar > 0) {
-				this.velocidadeVeiculo = acelerar;
+				if (acelerar > limiteVeiculo) {
+					acelerar = limiteVeiculo;
+					this.velocidadeVeiculo = acelerar;
+
+				}
 			}
 		}
 		System.out.println(velocidadeVeiculo + " KM/H");
@@ -52,32 +64,15 @@ public class Veiculo {
 		return freiar;
 
 	}
-	
-	
-	
+
 	public static void exibirDados() {
 		try {
 			System.out.println();
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public static void exibirContador() {
 		System.out.println(contador);
@@ -113,6 +108,14 @@ public class Veiculo {
 
 	public void setDataFabricacao(Date dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
+	}
+
+	public double getLimiteVeiculo() {
+		return limiteVeiculo;
+	}
+
+	public void setLimiteVeiculo(double limiteVeiculo) {
+		this.limiteVeiculo = limiteVeiculo;
 	}
 
 }
