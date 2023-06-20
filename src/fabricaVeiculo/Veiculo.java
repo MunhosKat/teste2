@@ -1,11 +1,11 @@
-package aula04;
+package fabricaVeiculo;
 
 import java.util.Date;
 
 import aula03.Cliente;
 
 public class Veiculo {
-
+//Testado pelo Matheus
 	protected String numeroSerie, cor, placa, porte, modelo;
 	protected Date dataFabricacao;
 	protected int statusVeiculo;
@@ -16,7 +16,7 @@ public class Veiculo {
 	private static long contador;
 
 	public Veiculo(Motor motor, Pneu pneu, Transmissao transmissao, String numeroSerie, String placa, String porte,
-			String modelo) {
+			String modelo, double limiteVeiculo) {
 		// apagar o SUPER
 		this.motor = motor;
 		this.pneu = pneu;
@@ -26,12 +26,13 @@ public class Veiculo {
 		this.placa = placa;
 		this.porte = porte;
 		this.dataFabricacao = new Date(System.currentTimeMillis());
+		this.limiteVeiculo = limiteVeiculo;
 		contador++;
 	}
 
 	public boolean statusVeiculo(int valor) {
 		statusVeiculo = valor;
-
+//1 = ligado, 0 = desligado
 		if (valor == 1) {
 			return true;
 
@@ -40,22 +41,30 @@ public class Veiculo {
 
 	}
 
-	public double acelerar(double acelerar) {
+	public double acelerar(double valorAceleracao) {
 
-		if (statusVeiculo == 1) {
-			if (acelerar > 0) {
-				if (acelerar > limiteVeiculo) {
-					acelerar = limiteVeiculo;
-					this.velocidadeVeiculo = acelerar;
+		if (this.statusVeiculo == 1) {
+			if (valorAceleracao > 0) {
+				if (valorAceleracao > this.limiteVeiculo) {
+					valorAceleracao = this.limiteVeiculo;
+					this.velocidadeVeiculo = valorAceleracao;
+					this.velocidadeVeiculo = valorAceleracao;
+					System.out.println(velocidadeVeiculo + " KM/H");
+					return velocidadeVeiculo;
 
 				}
+			} else {
+				System.out.println("Você não pode acelerar valores menores que zero.");
+				return this.velocidadeVeiculo;
 			}
-		} 
-		this.velocidadeVeiculo = acelerar;
+		} else {
+			System.out.println("O veículo não pode acelerar pois está desligado");
+			this.velocidadeVeiculo = 0.0;
+		}
+		this.velocidadeVeiculo = valorAceleracao;
 		System.out.println(velocidadeVeiculo + " KM/H");
-		return velocidadeVeiculo;
-
-	} 
+		return this.velocidadeVeiculo;
+	}
 
 	public double freiar(double freiar) {
 
@@ -66,18 +75,11 @@ public class Veiculo {
 		return freiar;
 
 	}
-	
-	
+
 //	public double limiteVeiculo(double veloMax) {
 //		return limiteVeiculo = veloMax;
 //		
 //	}
-	
-	
-	
-	
-	
-	
 
 	public String exibirDados() {
 		System.out.println();
@@ -86,7 +88,11 @@ public class Veiculo {
 	}
 
 	public static void exibirContador() {
-		System.out.println(contador);
+		if (contador == 1) {
+			System.out.printf("Existe %s veículo criado no momento \n", contador);
+		} else {
+			System.out.printf("Existem %S veículos criados no momento. \n", contador);
+		}
 	}
 
 	public String getCor() {
@@ -133,8 +139,12 @@ public class Veiculo {
 		return statusVeiculo;
 	}
 
-	public void setStatusVeiculo(int statusVeiculo) {
-		this.statusVeiculo = statusVeiculo;
+	public void ligarVeiculo() {
+		this.statusVeiculo = 1;
+	}
+	
+	public int desligarVeiculo() {
+		return this.statusVeiculo = 0;
 	}
 
 	public Transmissao getTransmissao() {
