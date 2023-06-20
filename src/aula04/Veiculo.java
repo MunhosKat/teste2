@@ -15,7 +15,8 @@ public class Veiculo {
 	protected double limiteVeiculo, valorVeiculo, velocidadeVeiculo;
 	private static long contador;
 
-	public Veiculo(Motor motor, Pneu pneu, Transmissao transmissao, String numeroSerie, String placa, String porte, String modelo) {
+	public Veiculo(Motor motor, Pneu pneu, Transmissao transmissao, String numeroSerie, String placa, String porte,
+			String modelo) {
 		// apagar o SUPER
 		this.motor = motor;
 		this.pneu = pneu;
@@ -49,11 +50,12 @@ public class Veiculo {
 
 				}
 			}
-		}
+		} 
+		this.velocidadeVeiculo = acelerar;
 		System.out.println(velocidadeVeiculo + " KM/H");
-		return acelerar;
+		return velocidadeVeiculo;
 
-	}
+	} 
 
 	public double freiar(double freiar) {
 
@@ -64,14 +66,23 @@ public class Veiculo {
 		return freiar;
 
 	}
+	
+	
+//	public double limiteVeiculo(double veloMax) {
+//		return limiteVeiculo = veloMax;
+//		
+//	}
+	
+	
+	
+	
+	
+	
 
-	public static void exibirDados() {
-		try {
-			System.out.println();
-		} catch (Exception e) {
+	public String exibirDados() {
+		System.out.println();
+		return modelo;
 
-			e.printStackTrace();
-		}
 	}
 
 	public static void exibirContador() {
@@ -116,6 +127,30 @@ public class Veiculo {
 
 	public void setLimiteVeiculo(double limiteVeiculo) {
 		this.limiteVeiculo = limiteVeiculo;
+	}
+
+	public int getStatusVeiculo() {
+		return statusVeiculo;
+	}
+
+	public void setStatusVeiculo(int statusVeiculo) {
+		this.statusVeiculo = statusVeiculo;
+	}
+
+	public Transmissao getTransmissao() {
+		return transmissao;
+	}
+
+	public void setTransmissao(Transmissao transmissao) {
+		this.transmissao = transmissao;
+	}
+
+	public double getVelocidadeVeiculo() {
+		return velocidadeVeiculo;
+	}
+
+	public void setVelocidadeVeiculo(double velocidadeVeiculo) {
+		this.velocidadeVeiculo = velocidadeVeiculo;
 	}
 
 }

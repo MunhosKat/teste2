@@ -1,6 +1,6 @@
 package aula04;
 
-public class Carro extends Veiculo {
+public class Carro extends Veiculo  {
 	int controlarJanela;
 	int abrirPortaMalas;
 	int abrirCapo;
@@ -10,6 +10,8 @@ public class Carro extends Veiculo {
 		super(motor, pneu, transmissao, numeroSerie, placa, porte, modelo);
 	}
 	// métodos
+	
+ 
 
 	public boolean controlarJanela(int valor) {
 		controlarJanela = valor;
@@ -50,5 +52,20 @@ public class Carro extends Veiculo {
 				}
 
 	}
+			
+			public void exibirDadosVeiculo() {
+				System.out.println(getModelo());
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 }

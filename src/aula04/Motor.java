@@ -10,6 +10,9 @@ public class Motor {
 		this.marcaMotor = marcaMotor;
 		this.combustivelMotor = combustivelMotor;
 		
+		
+		
+		
 	}
 	
 	//métodos:
