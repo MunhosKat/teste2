@@ -9,6 +9,19 @@ public class Caminhao extends Veiculo {
 			String modelo, double limiteVeiculo) {
 		super(motor, pneu, transmissao, numeroSerie, placa, porte, modelo, limiteVeiculo);
 	}
+	
+	public void statusCaminhao() {
+		System.out.println("Motor - " + this.motor);
+		System.out.println("Pneu - " + this.pneu);
+		System.out.println("Transmissão - " + this.transmissao);
+		System.out.println("Número de série - " + this.numeroSerie);
+		System.out.println("Placa - " + this.placa);
+		System.out.println("Porte - " + this.porte);
+		System.out.println("Placa - " + this.placa);
+		System.out.println("Modelo - " + this.modelo);
+		System.out.println("Limite do Veiculo - " + this.limiteVeiculo);
+		
+	}
 
 	// Métodos
 	public boolean controlarCarga(int valor1) {
