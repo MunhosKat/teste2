@@ -1,9 +1,13 @@
 package fabricaVeiculo;
 
+import aula03.Produto;
+
 public class Carro extends Veiculo {
 	int controlarJanela;
 	int abrirPortaMalas;
 	int abrirCapo;
+	double qtdNoTanque;
+	private double rendimentoTotal;
 
 //Testado pelo Matheus
 	public Carro(Motor motor, Pneu pneu, Transmissao transmissao, String numeroSerie, String placa, String porte,
@@ -63,5 +67,41 @@ public class Carro extends Veiculo {
 	public void exibirDadosVeiculo() {
 		System.out.println(getModelo());
 	}
+	
+	
+	
+	public void abastecimento (Combustivel comb, double qtd) {
+		if (qtdNoTanque + qtd <= 50) {
+			qtdNoTanque += qtd;
+			rendimentoTotal +=comb.abastecer(qtd);
+			
+		}
+	}
 
+	public double getQtdNoTanque() {
+		return qtdNoTanque;
+	}
+
+	public void setQtdNoTanque(double qtdNoTanque) {
+		this.qtdNoTanque = qtdNoTanque;
+	}
+
+	public double getRendimentoTotal() {
+		return rendimentoTotal;
+	}
+
+	public void setRendimentoTotal(double rendimentoTotal) {
+		this.rendimentoTotal = rendimentoTotal;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

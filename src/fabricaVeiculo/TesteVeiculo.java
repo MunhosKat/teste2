@@ -18,16 +18,33 @@ public class TesteVeiculo {
 		Moto motoGui = new Moto (tm,chev,auto,"1234","AFG1234","pequeno","hatch", 300.00);
 		Carro matheusVeiculo = new Carro (tm,chev,auto,"1234","AFG1234","pequeno","hatch", 250);
 
-		motoGui.ligarVeiculo();
-		motoGui.acelerar(310);
+//		motoGui.ligarVeiculo();
+//		motoGui.acelerar(310);
+//		
+//		matheusVeiculo.ligarVeiculo();
+//		matheusVeiculo.acelerar(-180);
+//		Veiculo.exibirContador();
+//		
+//		caminhaoJessica.ligarVeiculo();
+//		caminhaoJessica.fecharJanela();
+//		caminhaoJessica.abrirJanela();
 		
-		matheusVeiculo.ligarVeiculo();
-		matheusVeiculo.acelerar(-180);
-		Veiculo.exibirContador();
+		Alcool alcool = new Alcool();
+		Gasolina gasolina = new Gasolina();
 		
-		caminhaoJessica.ligarVeiculo();
-		caminhaoJessica.fecharJanela();
-		caminhaoJessica.abrirJanela();
+		matheusVeiculo.abastecimento(gasolina, 10);
+		matheusVeiculo.abastecimento(alcool, 20);
+		matheusVeiculo.abastecimento(gasolina, 10);
+		matheusVeiculo.abastecimento(gasolina, 20);
+		
+		System.out.println("Quantidade no tanque: "+matheusVeiculo.getQtdNoTanque()+"L");
+		System.out.println("Rendimento: "+matheusVeiculo.getRendimentoTotal()+" KM");
+		
+		
+		
+		
+		
+		
 
 	}
 

@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class TestaConta {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, SaldoInsuficiente {
 		
 		CDB CDB = new CDB();
 		LCA LCA = new LCA();
@@ -21,49 +21,25 @@ public class TestaConta {
 		ContaCorrente contaMatheus = new ContaCorrente(clienteMatheus, 1, 1, "teste");
 		ContaCorrente contaHenrique = new ContaCorrente(clienteHenrique, 2, 1, "teste");
 		
-		contaMatheus.depositar(10000);
-		contaHenrique.depositar(9000);
 		
-		contaMatheus.exibirSaldo();
-		contaHenrique.exibirSaldo();
+		contaMatheus.depositar(320);
+	//	contaMatheus.exibirSaldo();
+		try {
+			contaMatheus.investimento(CDB, 100);
+		} catch (SaldoInsuficiente e) {
+			e.printStackTrace();
+		}
 		
-		contaMatheus.sacar(5000);
-		contaHenrique.sacar(3000);
-		
-		contaMatheus.exibirSaldo();
-		contaHenrique.exibirSaldo();
-		
-		contaHenrique.transferir(contaMatheus, 1000);
-		
-		contaMatheus.exibirSaldo();
-		contaHenrique.exibirSaldo();
-		contaMatheus.exibirSaldo();
-		
-		Conta.exibirContador();
-		
-		contaMatheus.investimento(CDB,500 );
-		
-		System.out.println(contaMatheus);
-		System.out.println(clienteMatheus.getNomeTitular());
-		
-		
+		try {
+			contaMatheus.sacar(200);
+		} catch (SaldoInsuficiente e1) {
+			e1.printStackTrace();
+		}
 		
 		
 		contaMatheus.exibirSaldo();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		

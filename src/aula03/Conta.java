@@ -30,11 +30,14 @@ public abstract class Conta { // abstract usado na classe, proibe a instancia da
 
 	// METODOS
 	// Sacar
-	public boolean sacar(double valor) {
+	//throw (exceção)
+	public boolean sacar(double valor) throws SaldoInsuficiente {
 		if (valor > 0) {
 			if (this.saldo >= valor) {
 				this.saldo -= valor;
 				return true;
+			} else {
+				throw new SaldoInsuficiente ("Saldo insuficiente");
 			}
 
 		}
@@ -51,7 +54,7 @@ public abstract class Conta { // abstract usado na classe, proibe a instancia da
 
 	// this é o objeto que esta chamando o metodo
 	// Tranferencia
-	public void transferir(Conta conta, double valor) {
+	public void transferir(Conta conta, double valor) throws SaldoInsuficiente {
 		boolean teste = this.sacar(valor);
 		if (teste == true) {
 			conta.depositar(valor);
