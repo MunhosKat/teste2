@@ -12,6 +12,10 @@ public class TestaConta {
 		LCI LCI = new LCI();
 		//CLASSE É A RECEITA DO BOLO / PROJETO
 		
+//		int [] valor = new int[5];
+//		
+//		int [] valor1 = {1,2,3,4};
+	
 		
 		
 		//objetos
