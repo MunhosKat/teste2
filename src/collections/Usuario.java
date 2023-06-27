@@ -1,7 +1,7 @@
 package collections;
 
 public class Usuario implements Comparable<Usuario> {
-
+//
 	private int idUsuario;
 	private String nome, senha;
 	// private para encapsulamento, proteger as variaveis.
